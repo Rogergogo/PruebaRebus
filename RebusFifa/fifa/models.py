@@ -52,7 +52,14 @@ class Player(models.Model):
         default=False,
     )
     photo_image_b64 = models.BinaryField(blank=True, null=False)
-
+    team = models.ForeignKey(
+        Team,
+        models.CASCADE,
+        related_name="player_team",
+        related_query_name="player_team",
+        blank=False,
+        null=False,
+    )
 
 class Staff(models.Model):
     created_at = models.DateTimeField(auto_now=True)
@@ -74,5 +81,13 @@ class Staff(models.Model):
         "Rol",
         max_length=255,
         choices=ROLS
+    )
+    team = models.ForeignKey(
+        Team,
+        models.CASCADE,
+        related_name="staff_team",
+        related_query_name="staff_team",
+        blank=False,
+        null=False,
     )
 
