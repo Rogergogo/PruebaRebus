@@ -23,5 +23,5 @@ class PlayerAdmin(admin.ModelAdmin):
 @admin.register(Staff)
 class StaffAdmin(admin.ModelAdmin):
     readonly_fields = (
-        'created_at', 'updated_at')    
+        'created_at', 'updated_at')
 

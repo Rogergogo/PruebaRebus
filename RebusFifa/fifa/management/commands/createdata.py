@@ -20,16 +20,16 @@ TEAMS = [
 ]
 
 POSITIONS = [
-        'Arquero',
-        'Defensa',
-        'Mediocampo',
-        'Delantero',
+    'Arquero',
+    'Defensa',
+    'Mediocampo',
+    'Delantero',
 ]
 
 ROLES = [
     'Tecnico',
     'Asistencia',
-    'Medico', 
+    'Medico',
     'Preparador'
 ]
 
@@ -40,7 +40,7 @@ class Provider(providers.BaseProvider):
 
     def player_position(self):
         return self.random_element(POSITIONS)
-    
+
     def staff_rols(self):
         return self.random_element(ROLES)
 
@@ -66,8 +66,8 @@ class Command(BaseCommand):
                 name=fake.first_name(),
                 last_name=fake.last_name(),
                 birthday=fake.date_between(
-                    start_date=datetime(1990,1,1), 
-                    end_date =datetime(2000,1,1)
+                    start_date=datetime(1990, 1, 1),
+                    end_date=datetime(2000, 1, 1)
                 ),
             )
 
@@ -85,8 +85,8 @@ class Command(BaseCommand):
                 name=fake.first_name(),
                 last_name=fake.last_name(),
                 birthday=fake.date_between(
-                    start_date=datetime(1980,1,1), 
-                    end_date =datetime(2000,1,1)
+                    start_date=datetime(1980, 1, 1),
+                    end_date=datetime(2000, 1, 1)
                 ),
                 nationality=fake.country()
             )

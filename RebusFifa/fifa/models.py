@@ -3,6 +3,7 @@ from django.db import models
 from django.conf import settings
 from .managers import PlayerManager, StaffManager
 
+
 class Team(models.Model):
     created_at = models.DateTimeField(auto_now=True)
     updated_at = models.DateTimeField(blank=True, null=True)
@@ -47,6 +48,10 @@ class Person(models.Model):
     def __str__(self):
         return f'{self.name} {self.last_name}'
 
+    @property
+    def full_name(self):
+        return f'{self.name} {self.last_name}'
+
 
 class Player(models.Model):
 
@@ -86,7 +91,7 @@ class Player(models.Model):
         blank=False,
         null=False,
     )
-    
+
     objects = PlayerManager()
 
     class Meta:
@@ -105,7 +110,7 @@ class Staff(models.Model):
         ('Asistencia', 'Asistencia'),
         ('Medico', 'Medico'),
         ('Preparador', 'Preparador'),
-    )   
+    )
     created_at = models.DateTimeField(auto_now=True)
     updated_at = models.DateTimeField(blank=True, null=True)
     role = models.CharField(
