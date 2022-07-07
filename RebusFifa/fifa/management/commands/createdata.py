@@ -63,7 +63,7 @@ class Command(BaseCommand):
 
         for _ in range(200):
             fake_person = Person.objects.create(
-                name=fake.first_name(),
+                name=fake.first_name_male(),
                 last_name=fake.last_name(),
                 birthday=fake.date_between(
                     start_date=datetime(1990, 1, 1),
@@ -77,7 +77,7 @@ class Command(BaseCommand):
                 starter=fake.boolean(chance_of_getting_true=75),
                 photo_image_b64=fake.binary(length=255),
                 person=fake_person,
-                team_id=random.randint(1, 15)
+                team_id=random.randint(1, 11)
             )
 
         for _ in range(50):
@@ -93,6 +93,6 @@ class Command(BaseCommand):
 
             Staff.objects.create(
                 role=fake.staff_rols(),
-                team_id=random.randint(1, 15),
+                team_id=random.randint(1, 11),
                 person=fake_person
             )
