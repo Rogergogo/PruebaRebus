@@ -46,7 +46,7 @@ class Person(models.Model):
         verbose_name_plural = 'Persona'
 
     def __str__(self):
-        return f'{self.name} {self.last_name}'
+        return self.full_name
 
     @property
     def full_name(self):
